@@ -30,7 +30,7 @@ $(function () {
           data: $(this).serialize(),
           success:(res) => {
               if (res.status !== 0) {
-                  return     layer.msg(res.message || "注册失败")
+                  return layer.msg(res.message || "注册失败")
               }
             layer.msg(res.message || "注册成功")
             $('#link_login').click()
