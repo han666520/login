@@ -34,7 +34,8 @@ function renderAvatar(user) {
     $('#welcome').html('欢迎&nbsp&nbsp' + name)
     if (user.user_pic !==null) {
         //渲染图片头像
-         $('.layui-nav-img').attr('src',user.user_pic).show().$('.text-avatar').hide()
+      $('.layui-nav-img').attr('src', user.user_pic).show()
+      $('.text-avatar').hide()
     } else {
         //渲染文字头像
      
