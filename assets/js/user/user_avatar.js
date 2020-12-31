@@ -33,22 +33,29 @@ $(function () {
       .cropper(options); // 重新初始化裁剪区域
   });
 
-    $("#btnupload").on("click", function () {
-        var dataURL = $image
-    .cropper("getCroppedCanvas", {
-      // 创建一个 Canvas 画布
-      width: 100,
-      height: 100,
-    })
-    .toDataURL("image/png")
+  $("#btnupload").on("click", function () {
+    var dataURL = $image
+      .cropper("getCroppedCanvas", {
+        // 创建一个 Canvas 画布
+        width: 100,
+        height: 100,
+      })
+      .toDataURL("image/png");
     $.ajax({
       method: "post",
       url: "/my/update/avatar",
       data: {
         avatar: dataURL,
       },
+      // success: function(res) {
+      //   if (res.status !== 0) {
+      //     return layer.msg('更换头像失败！')
+      //   }
+      //   layer.msg('更换头像成功！')
+      //   window.parent.getUserInfo()
+      // }
       success: function (res) {
-        if (res.ststus !== 0) {
+        if (res.status !== 0) {
           return layer.msg("更新头像失败");
         }
         layer.msg("更新头像成功");
